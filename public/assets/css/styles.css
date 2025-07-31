@@ -1,0 +1,167 @@
+/* Definição das variáveis de cor para um tema futurista (Preto, Vermelho Escuro, Azul Elétrico, Dourado) */
+:root {
+    --color-primary-dark: #1A1A1A;   /* Preto principal */
+    --color-dark-red: #8B0000;     /* Vermelho escuro/Borgonha do logo */
+    --color-accent-blue: #00BFFF;  /* Azul elétrico para destaque futurista (mantido para outros elementos como bordas de imagens) */
+    --color-primary-gold: #C8A44D;   /* Dourado/Âmbar do logo */
+    --color-hover-gold: #B8860B;   /* Dourado mais escuro para hover */
+    --color-light-text: #E0E0E0;   /* Texto claro para fundos escuros */
+    --color-medium-gray: #555555;  /* Cinza médio para textos secundários */
+    --color-light-bg: #F0F0F0;     /* Fundo cinza claro */
+    --color-hover-blue: #009ACD;   /* Azul mais escuro para hover (mantido para outros elementos) */
+}
+
+/* Estilos personalizados para o protótipo */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth; /* Rolagem suave para navegação */
+    background-color: var(--color-light-bg); /* Fundo geral claro */
+    color: var(--color-medium-gray); /* Cor de texto padrão */
+}
+.section-padding {
+    padding: 4rem 1rem; /* Padding padrão para seções */
+}
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 6rem 2rem;
+    }
+}
+.nav-link {
+    transition: color 0.3s ease;
+    color: var(--color-primary-dark); /* Cor dos links da navegação */
+}
+.nav-link:hover {
+    color: var(--color-dark-red); /* Cor vermelha escura no hover */
+}
+.hero-banner {
+    /* Imagem de placeholder com fundo preto para combinar com o tema */
+    background-image: url('/assets/img/Logo.png');
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Altura fixa para o banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+/* Estilo para o botão de login/área do associado (AGORA DOURADO) */
+.btn-primary {
+    background-color: var(--color-primary-gold); /* Dourado primário */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer; /* Adicionado cursor pointer para indicar interatividade */
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--color-hover-gold); /* Dourado mais escuro no hover */
+}
+/* Estilo para as caixas de destaque na página inicial */
+.highlight-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.highlight-card:hover {
+    transform: translateY(-5px);
+}
+/* Estilo para imagens da diretoria */
+.director-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagem redonda */
+    border: 3px solid var(--color-accent-blue); /* Borda azul elétrico (mantido para contraste) */
+}
+/* Estilo para formulários (AGORA DOURADO) */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.form-button {
+    background-color: var(--color-primary-gold); /* Dourado primário */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-button:hover {
+    background-color: var(--color-hover-gold); /* Dourado mais escuro no hover */
+}
+/* Estilo para modais (mensagens de sucesso/erro) */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Sobrescrevendo classes Tailwind para aplicar as novas cores */
+.text-dark-red-custom { color: var(--color-dark-red); } /* Títulos principais e elementos de destaque em vermelho */
+.text-accent-blue-custom { color: var(--color-primary-gold); } /* Links em dourado */
+.text-primary-gold-custom { color: var(--color-primary-gold); } /* Mantido para consistência */
+.text-primary-dark-custom { color: var(--color-primary-dark); } /* Textos em preto */
+.bg-light-bg-custom { background-color: var(--color-light-bg); } /* Fundo cinza claro */
+.bg-primary-dark-custom { background-color: var(--color-primary-dark); } /* Fundo preto para o rodapé e outros elementos */
+
+/* Ajustes específicos para elementos que usavam classes Tailwind padrão de cor */
+.text-blue-700 { color: var(--color-dark-red); }
+.text-blue-600 { color: var(--color-dark-red); }
+.text-blue-500 { color: var(--color-primary-gold); } /* Links */
+.bg-blue-50 { background-color: var(--color-light-bg); }
+.text-gray-800 { color: var(--color-medium-gray); } /* Ajusta a cor padrão do body */
+.text-gray-700 { color: var(--color-medium-gray); } /* Ajusta a cor padrão de textos */
+.text-gray-600 { color: var(--color-medium-gray); } /* Ajusta a cor padrão de textos */
+.bg-gray-800 { background-color: var(--color-primary-dark); } /* Rodapé */
+.text-gray-400 { color: var(--color-light-text); } /* Links do rodapé */
+.text-gray-50 { color: var(--color-light-text); } /* Textos em fundos escuros */
+
+/* Garante que os spans de categoria de notícias usem as cores definidas */
+.inline-block.bg-accent-blue-custom { background-color: var(--color-accent-blue); }
+.inline-block.bg-dark-red-custom { background-color: var(--color-dark-red); }
+.inline-block.bg-primary-dark-custom { background-color: var(--color-primary-dark); }
+

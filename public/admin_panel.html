@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSOF-PB - Painel Administrativo</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/Logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/admin_panel.css" rel="stylesheet">
+</head>
+<body class="bg-light-bg-custom text-gray-800 page-admin-panel">
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/assets/img/Logo.png" alt="Logomarca ASSOF/PB" class="h-12 w-auto mr-3">
+                <span class="text-xl font-bold text-dark-red-custom">ASSOF-PB - Admin</span>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="nav-link font-medium">Início</a></li>
+                    <li><button id="logoutButton" class="nav-link font-medium cursor-pointer">Sair</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-dark-red-custom mb-8 text-center">Painel Administrativo</h1>
+
+            <div class="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-primary-dark-custom mb-6">Adicionar Novo Associado (Rápido)</h2>
+                <form id="addAssociadoForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 border rounded-lg bg-gray-50">
+                    <div>
+                        <label for="nomeAssociado" class="block text-medium-gray text-sm font-bold mb-2">Nome Completo:</label>
+                        <input type="text" id="nomeAssociado" name="nomeAssociado" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="cpfAssociado" class="block text-medium-gray text-sm font-bold mb-2">CPF:</label>
+                        <input type="text" id="cpfAssociado" name="cpfAssociado" class="form-input" placeholder="000.000.000-00" required>
+                    </div>
+                     <div>
+                        <label for="senhaAssociado" class="block text-medium-gray text-sm font-bold mb-2">Senha Inicial:</label>
+                        <input type="password" id="senhaAssociado" name="senhaAssociado" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="matriculaAssociado" class="block text-medium-gray text-sm font-bold mb-2">Matrícula Militar:</label>
+                        <input type="text" id="matriculaAssociado" name="matriculaAssociado" class="form-input">
+                    </div>
+                    <div>
+                        <label for="idMilitarAssociado" class="block text-medium-gray text-sm font-bold mb-2">ID Militar:</label>
+                        <input type="text" id="idMilitarAssociado" name="idMilitarAssociado" class="form-input">
+                    </div>
+                    <div>
+                        <label for="corporacaoAssociado" class="block text-medium-gray text-sm font-bold mb-2">Corporação:</label>
+                        <select id="corporacaoAssociado" name="corporacaoAssociado" class="form-select">
+                            <option value="">Selecione...</option>
+                            <option value="PM">Polícia Militar (PM)</option>
+                            <option value="BM">Bombeiros Militar (BM)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dataNascimentoAssociado" class="block text-medium-gray text-sm font-bold mb-2">Data Nasc.:</label>
+                        <input type="date" id="dataNascimentoAssociado" name="dataNascimentoAssociado" class="form-input">
+                    </div>
+                    <div>
+                        <label for="statusMensalidadeAdd" class="block text-medium-gray text-sm font-bold mb-2">Status Mensalidade:</label>
+                        <select id="statusMensalidadeAdd" name="statusMensalidadeAdd" class="form-select" required>
+                            <option value="Em Dia">Em Dia</option>
+                            <option value="Pendente">Pendente</option>
+                        </select>
+                    </div>
+                    <div class="col-span-full text-right">
+                        <button type="submit" class="btn-primary">Adicionar Associado</button>
+                    </div>
+                </form>
+
+                <h2 class="text-2xl font-bold text-primary-dark-custom mb-6">Lista de Associados Cadastrados</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="bg-gray-100 text-left text-sm font-semibold text-medium-gray uppercase tracking-wider">
+                                <th class="py-3 px-4 border-b">Nome</th>
+                                <th class="py-3 px-4 border-b">CPF</th>
+                                <th class="py-3 px-4 border-b">Data Nasc.</th>
+                                <th class="py-3 px-4 border-b">Matrícula</th>
+                                <th class="py-3 px-4 border-b">ID Militar</th>
+                                <th class="py-3 px-4 border-b">Corporação</th>
+                                <th class="py-3 px-4 border-b">Data Cadastro</th>
+                                <th class="py-3 px-4 border-b">Status Mens.</th>
+                                <th class="py-3 px-4 border-b">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="associatesTableBody">
+                            <tr><td colspan="9" class="py-4 text-center text-medium-gray">Carregando associados...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-sm text-medium-gray mt-6 text-center">*(Ações de Editar/Excluir e o cadastro rápido são simulações e afetam apenas os dados no seu navegador.)*</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary-dark-custom text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-light-text">&copy; 2025 ASSOF/PB. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modalMessage" class="text-lg font-semibold text-gray-800"></p>
+            <button id="modalCloseButton" class="btn-primary mt-4">Fechar</button>
+        </div>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta name="description" content="Página de cadastro de novos associados da ASSOF/PB">
+    <title>ASSOF-PB - Cadastro de Associado</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/Logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet"> <link href="/assets/css/cadastro_associado.css" rel="stylesheet"> </head>
+<body class="bg-light-bg-custom text-gray-800">
+
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/assets/img/Logo.png" alt="Logomarca ASSOF/PB" class="h-12 w-auto mr-3">
+                <span class="text-xl font-bold text-dark-red-custom">ASSOF-PB</span>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="nav-link font-medium">Voltar ao Início</a></li>
+                    <li><a href="index.html#area-associado" class="nav-link font-medium">Login Associado</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-dark-red-custom mb-8 text-center">Cadastro de Novo Associado</h1>
+
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-medium-gray mb-6 text-center">Preencha os dados abaixo para se associar à ASSOF/PB. **(Atenção: Este cadastro é uma simulação e os dados são salvos apenas no seu navegador.)**</p>
+
+                <form id="cadastroAssociadoForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="nome" class="block text-medium-gray text-sm font-bold mb-2">Nome Completo:</label>
+                            <input type="text" id="nome" name="nome" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="cpf" class="block text-medium-gray text-sm font-bold mb-2">CPF (Será seu Login):</label>
+                            <input type="text" id="cpf" name="cpf" class="form-input" placeholder="000.000.000-00" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="senha" class="block text-medium-gray text-sm font-bold mb-2">Senha:</label>
+                            <input type="password" id="senha" name="senha" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="dataNascimento" class="block text-medium-gray text-sm font-bold mb-2">Data de Nascimento:</label>
+                            <input type="date" id="dataNascimento" name="dataNascimento" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="matriculaMilitar" class="block text-medium-gray text-sm font-bold mb-2">Matrícula Militar:</label>
+                            <input type="text" id="matriculaMilitar" name="matriculaMilitar" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="idMilitar" class="block text-medium-gray text-sm font-bold mb-2">ID Militar (RG ou Identidade Funcional):</label>
+                            <input type="text" id="idMilitar" name="idMilitar" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="corporacao" class="block text-medium-gray text-sm font-bold mb-2">Corporação:</label>
+                        <select id="corporacao" name="corporacao" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option value="PM">Polícia Militar (PM)</option>
+                            <option value="BM">Bombeiros Militar (BM)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Cadastrar</button>
+                </form>
+
+                <p class="text-center text-sm text-medium-gray mt-6">
+                    Já tem cadastro? <a href="index.html#area-associado" class="text-primary-gold-custom hover:underline">Faça login aqui</a>
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary-dark-custom text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-light-text">&copy; 2025 ASSOF/PB. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modalMessage" class="text-lg font-semibold text-gray-800"></p>
+            <button id="modalCloseButton" class="btn-primary mt-4">Fechar</button>
+        </div>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
